@@ -48,6 +48,10 @@ def main():
             st.metric(label="Eye Status", value="Open" if eye_status == 1 else "Closed", delta_color=ear_col)
             yawn_col = "green" if yawn_status == 0 else "red"
             st.metric(label="Yawn Status", value="No Yawning" if yawn_status == 0 else "Yawning", delta_color=yawn_col)
+            if eye_status == 0:
+                st.warning("Drowsiness Detected!")
+            else:
+                st.success("No Drowsiness")
             if yawn_status == 1:
                 st.warning("Yawning Detected!")
             else:
